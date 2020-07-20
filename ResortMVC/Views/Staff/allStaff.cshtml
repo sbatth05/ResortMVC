@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ResortMVC.Models.Staff>
+
+@{
+    ViewBag.Title = "allStaff";
+}
+
+<h2>Staff Member </h2>
+
+<p class="btn btn-danger">
+    @Html.ActionLink("Add New Staff Member Details ", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Designation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>
+        <th>Edit </th>
+        <th>Delete </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Designation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salary)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) </td>
+        <td>
+
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
+
+<h1 class="btn btn-warning"> @Html.ActionLink("Back toWorking Pannel ", "Pannel", "Login")</h1>

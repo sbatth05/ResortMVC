@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ResortMVC.Models.Payment>
+
+@{
+    ViewBag.Title = "allPayment";
+}
+
+<h2>Payment Details </h2>
+
+<p>
+    @Html.ActionLink("Add Payment Details ", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChkDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Payment1)
+        </th>
+        <th>Edit </th>
+        <th>Delete </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChkDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Payment1)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
+
+<h1 class="btn btn-warning"> @Html.ActionLink("Back to Working Pannel ", "Pannel", "Login")</h1>
